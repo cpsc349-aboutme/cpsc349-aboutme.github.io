@@ -36,13 +36,16 @@ export default function App() {
         <div>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Register</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/login">Login</Link>
             </li>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/create">Create</Link>
+            </li>
+            <li>
+              <Link to="/home">Home</Link>
             </li>
           </ul>
 
@@ -59,16 +62,16 @@ export default function App() {
             <div className="col">
               <Switch>
                 <Route exact path="/">
-                  <Home />
-                </Route>
-                <Route path="/about">
-                  <About />
+                  <Register />
                 </Route>
                 <Route path="/login">
                   <Login />
                 </Route>
-                <Route path="/dashboard">
-                  <Dashboard />
+                <Route path="/create">
+                  <Create />
+                </Route>
+                <Route path="/home">
+                  <Home />
                 </Route>
               </Switch>
             </div>
@@ -80,19 +83,19 @@ export default function App() {
 }
 
 
-function Home() {
+function Register() {
     return (
     <div>
-      <h2>Home</h2>
+      <h2>Register</h2>
       <SignUpForm />
     </div>
   );
 }
 
-function About() {
+function Create() {
   return (
     <div>
-      <h2>About</h2>
+      <h2>Create</h2>
     </div>
   );
 }
@@ -106,10 +109,10 @@ function Login() {
   );
 }
 
-function Dashboard() {
+function Home() {
   return (
     <div>
-      <h2>Dashboard</h2>
+      <h2>Home</h2>
     </div>
   );
 }
@@ -158,7 +161,7 @@ class SignUpForm extends React.Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/about" />
+      return <Redirect to="/home" />
     }
     else{
     return (     
@@ -239,7 +242,7 @@ class LoginForm extends React.Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/about" />
+      return <Redirect to="/home" />
     }
     else{
     return (     
