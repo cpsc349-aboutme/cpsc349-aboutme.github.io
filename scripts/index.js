@@ -52,7 +52,7 @@ async function createCard(){
     var education = document.getElementById("userCEducation").value;
     var twitter = document.getElementById("userCTwitter").value;
     var instagram = document.getElementById("userCInstagram").value;
-    firebase.auth().onAuthStateChanged(user =>{
+    await firebase.auth().onAuthStateChanged(user =>{
         if(user){
             console.log(user.uid)
             firebase.storage().ref('users/'+user.uid+'/profile.jpg').put(file).then(function (){
@@ -77,7 +77,7 @@ async function createCard(){
 }
 
 async function uploadImage(){
-    firebase.auth().onAuthStateChanged(user => {
+    await firebase.auth().onAuthStateChanged(user => {
         const ref = firebase.storage().ref();
         const file = document.querySelector('#photo').files[0]
         const name = (+new Date()) + '-' + file.name;
@@ -96,12 +96,16 @@ async function uploadImage(){
     })
 
 }
-function printCard(){
+async function printCard(){
     this.db = firebase.firestore();
     var userName, job, location, contact, about, education, twitter, instagram
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
-    firebase.auth().onAuthStateChanged(user =>{
+    await firebase.auth().onAuthStateChanged(user =>{
         if(user){
+            firebase.storage().ref('users/' + user.uid + '/profile.jpg').getDownloadURL().then(imgUrl => {
+                
+                $('#image').attr("src",imgUrl)
+            })
             this.db.collection("cards").doc(user.uid).get()
             .then((docRef) => {
                 const snapshot = docRef.data();
@@ -113,6 +117,7 @@ function printCard(){
                 education = snapshot["education"]
                 twitter = snapshot["twitter"]
                 instagram = snapshot["instagram"]
+               
                 $("#name").text("name: "+userName)
                 $("#job").text("job: "+job)
                 $("#education").text("education: "+education)
