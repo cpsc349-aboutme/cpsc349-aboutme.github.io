@@ -106,7 +106,8 @@ body {
 </style>
 </head>
 <body>
-<div class="signup-form">
+<form data-create="form">
+<div>
         <div class="form-group">
         	<input type="name" id="userCName" class="form-control" name="name" placeholder="name" required="required">
         </div>
@@ -135,15 +136,17 @@ body {
             <input type="file" onchange='chooseFile(event)' />
         </div>
 		<div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block" onclick="createCard()">Create</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block">Create</button>
         </div>
-
-    </form>
 </div>
+</form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
-<!-- <script src="scripts/firebasedatastore.js" charset="utf-8"></script> -->
-<script src="scripts/index.js" charset="utf-8"></script>
+<script src="scripts/firebasedatastore.js" charset="utf-8"></script>
+<!-- <script src="scripts/index.js" charset="utf-8"></script> -->
 <script src="scripts/firebaseconfig.js" charset="utf-8"></script>
+<script src="scripts/signinform.js" charset="utf-8"></script>
+<script src="scripts/signupform.js" charset="utf-8"></script>
+<script src="scripts/createform.js" charset="uft-8"></script>
+<script src="scripts/session.js" charset="utf-8"></script>
 <script src="scripts/main.js" charset="utf-8"></script>
-</body>
 </html>

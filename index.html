@@ -105,11 +105,12 @@ body {
 </style>
 </head>
 <body>
-<div class="signup-form">
+<form data-signup="form">
+	<div>
 		<h2>Register</h2>
 		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
         <div class="form-group">   
-            <input type="name" id="userName" class="form-control" name="name" placeholder="Fullname" required="required">
+           <input type="name" id="userName" class="form-control" name="name" placeholder="Fullname" required="required">
         </div>
         <div class="form-group">
         	<input type="email" id="userEmail" class="form-control" name="email" placeholder="Email" required="required">
@@ -118,16 +119,20 @@ body {
             <input type="password" id="userPassword" class="form-control" name="password" placeholder="Password" required="required">
         </div>    
 		<div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block" onclick="signUp()">Register Now</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
         </div>
-    </form>
 	<div class="text-center">Already have an account? <a href="signin.html">Sign in</a></div>
 </div>
+</form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
-<!-- <script src="scripts/firebasedatastore.js" charset="utf-8"></script> -->
-<script src="scripts/index.js" charset="utf-8"></script>
+<script src="scripts/firebasedatastore.js" charset="utf-8"></script>
+<!-- <script src="scripts/index.js" charset="utf-8"></script> -->
 <script src="scripts/firebaseconfig.js" charset="utf-8"></script>
+<script src="scripts/signinform.js" charset="utf-8"></script>
+<script src="scripts/signupform.js" charset="utf-8"></script>
+<script src="scripts/createform.js" charset="uft-8"></script>
+<script src="scripts/session.js" charset="utf-8"></script>
 <script src="scripts/main.js" charset="utf-8"></script>
 </body>
 </html>

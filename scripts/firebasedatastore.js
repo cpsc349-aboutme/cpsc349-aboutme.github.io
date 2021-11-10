@@ -1,48 +1,46 @@
+let file = {};
+
+function chooseFile(e) {
+    file = e.target.files[0];
+}
+
 (function (window) {
     'use strict';
     var App = window.App || {};
-    let file = {};
-    
+
     class firebasedatastore{
         constructor(){
             this.db = firebase.firestore();
   
         }
-
-        chooseFile(e) {
-            file = e.target.files[0];
-        }
-
         async signUp(){
             var userName = document.getElementById("userName").value;
             var userEmail = document.getElementById("userEmail").value;
             var userPassword = document.getElementById("userPassword").value;
             firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
             .then((success) => {
-            var user = firebase.auth().currentUser;
-            var uid; 
-            if(user != null)
-            {
-                uid = user.uid;
-            }
-            var docRef= this.db.collection("users").doc(uid);
-            docRef.set({
-                name: userName,
-                email: userEmail,
-                password: userPassword
-            })
-            setTimeout(function(){
-                window.location.replace("../home.html");
-            },1000)
-            
+              var user = firebase.auth().currentUser;
+              var uid; 
+              if(user != null)
+              {
+                  uid = user.uid;
+              }
+              var docRef= this.db.collection("users").doc(uid);
+              docRef.set({
+                  name: userName,
+                  email: userEmail,
+                  password: userPassword
+              })
+              setTimeout(function(){
+                  window.location.replace("../home.html");
+              },1000)
+              
             })
             .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+              const errorCode = error.code;
+              const errorMessage = error.message;
             });
-
         }
-
         async signIn(){
             var userEmail = document.getElementById("userSEmail").value;
             var userPassword = document.getElementById("userSPassword").value;
@@ -50,8 +48,9 @@
             .then((success) => {
             window.location.replace("../home.html");
             })
+        
         }
-
+        
         async createCard(){
             var userName = document.getElementById("userCName").value;
             var job = document.getElementById("userCJob").value;
@@ -61,7 +60,7 @@
             var education = document.getElementById("userCEducation").value;
             var twitter = document.getElementById("userCTwitter").value;
             var instagram = document.getElementById("userCInstagram").value;
-            firebase.auth().onAuthStateChanged(user =>{
+            await firebase.auth().onAuthStateChanged(user =>{
                 if(user){
                     console.log(user.uid)
                     firebase.storage().ref('users/'+user.uid+'/profile.jpg').put(file).then(function (){
@@ -75,8 +74,8 @@
                         contact: contact,
                         about: about,
                         education: education,
-                        twitter: "https://twitter.com"+ twitter,
-                        instgram: "https://instgram.com"+ instagram
+                        twitter: "https://twitter.com/"+ twitter,
+                        instgram: "https://instagram.com/"+ instagram
                     })
                     setTimeout(function(){
                         window.location.replace("../mycard.html");
@@ -84,9 +83,9 @@
                 }
             })
         }
-
+        
         async uploadImage(){
-            firebase.auth().onAuthStateChanged(user => {
+            await firebase.auth().onAuthStateChanged(user => {
                 const ref = firebase.storage().ref();
                 const file = document.querySelector('#photo').files[0]
                 const name = (+new Date()) + '-' + file.name;
@@ -105,10 +104,41 @@
             })
         
         }
+        async printCard(){
+            var userName, job, location, contact, about, education, twitter, instagram
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+            await firebase.auth().onAuthStateChanged(user =>{
+                if(user){
+                    firebase.storage().ref('users/' + user.uid + '/profile.jpg').getDownloadURL().then(imgUrl => {
+                        
+                        $('#image').attr("src",imgUrl)
+                    })
+                    this.db.collection("cards").doc(user.uid).get()
+                    .then((docRef) => {
+                        const snapshot = docRef.data();
+                        userName = snapshot["name"]
+                        job = snapshot["job"]
+                        location = snapshot["location"]
+                        contact = snapshot["contact"]
+                        about = snapshot["about"]
+                        education = snapshot["education"]
+                        twitter = snapshot["twitter"]
+                        instagram = snapshot["instagram"]
+                       
+                        $("#name").text("name: "+userName)
+                        $("#job").text("job: "+job)
+                        $("#education").text("education: "+education)
+                        $("#about").text("about: "+about)
+                        $("#contact").text("contact: "+contact)
+                        $("#location").text("location: " +location)
+                        $("#social").text("social: " + twitter)
+                    })
+                }
+            })
+        }
     }
 
-    App.firebasedatastore = firebasedatastore;
-    window.App = App;
-
+App.firebasedatastore = firebasedatastore;
+window.App = App;
 
 })(window);

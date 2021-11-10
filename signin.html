@@ -105,23 +105,27 @@ body {
 </style>
 </head>
 <body>
-<div class="signup-form">
+<form data-signin="form">
         <div class="form-group">
-        	<input type="email" id="userSEmail" class="form-control" name="email" placeholder="Email" required="required">
+			<label for="emailAdd">Email Address</label>
+        	<input class="form-control" type="email" id="userSEmail" class="form-control" name="email" placeholder="Email" required="required">
         </div>
 		<div class="form-group">
             <input type="password" id="userSPassword" class="form-control" name="password" placeholder="Password" required="required">
         </div>    
 		<div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block" onclick="signIn()">Sign In</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block">Sign In</button>
         </div>
-    </form>
-</div>
+</form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
-<!-- <script src="scripts/firebasedatastore.js" charset="utf-8"></script> -->
-<script src="scripts/index.js" charset="utf-8"></script>
+<script src="scripts/firebasedatastore.js" charset="utf-8"></script>
+<!-- <script src="scripts/index.js" charset="utf-8"></script> -->
 <script src="scripts/firebaseconfig.js" charset="utf-8"></script>
+<script src="scripts/signinform.js" charset="utf-8"></script>
+<script src="scripts/signupform.js" charset="utf-8"></script>
+<script src="scripts/createform.js" charset="uft-8"></script>
+<script src="scripts/session.js" charset="utf-8"></script>
 <script src="scripts/main.js" charset="utf-8"></script>
 </body>
 </html>
