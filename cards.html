@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" href="stylesheets/nav.css">
-<link rel="stylesheet" href="stylesheets/cards.css">
+<!-- <link rel="stylesheet" href="stylesheets/cards.css"> -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
@@ -18,17 +17,15 @@
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
 </head>
-
-<!-- <style>
+<style>
     body{
-        color: #fff;
+
 	background: #454550;
 	font-family: 'Roboto', sans-serif;
     }
 
 
-</style> -->
-
+</style>
 <body>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -50,39 +47,65 @@
       </div>
     </div>
   </nav>
-  <div class= "cardGroup">
-    <div id="gradient"></div>
-    <div id="card">
-      <img id="image" src="img/yourimagehere.jpeg"/>
-      <h2  id="name">Name: Your Name</h2>
-      <p id="job">Job: Your Job </p>
-      <p id="education">education: Your Education</p>
-      <p id="about">about: About you</p>
-      <p></p>
-      <span class="left bottom" id="contact">contact: You Contact</span>
-      <br>
-      <br>
-      <span class="right bottom" id="location">location: Your Location </span>
-      <br>
-      <br>
-      <p class="bottom" id="twitter">Twitter: Your Social Media<p>
-      <p class="bottom" id="instagram">Instagram: Your Social Media</p>
-    </div>
-    <br>
-    <br>
+  <div class="container" id="primary-container">
+    <!-- <div class="row mt-5">
+      <div class="col">
+        <div class="cardGroup">
+          <div id="card" class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="name"></h5>
+              <h6 class="card-subtitle mb-2 text-muted" id="job"></h6>  
+              <div class="row">
+                <div class="col-md-4 col-12">
+                  <img id="image" class="img-thumbnail" src=""/>
+                </div>
+                <div class="col-md-8 col-12">
+                  <div class="row h-75">
+                    <p id="about" class="lead"></p>
+                  </div>
+                  <div class="row h-25">
+                    <div class="col">
+                      <span class="text-muted">Education</span>
+                      <p id="education"></p>
+                    </div>
+                    <div class="col">
+                      <span class="text-muted">Contact</span>
+                      <div id="contact"></div>
+                    </div>
+                    <div class="col">
+                      <span class="text-muted">Location</span>
+                      <div id="location"></div>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col" align="center">
+                  <a href="#" id="twitter"><img class="img-fluid" height="30px" width="30px" src="img/twittericon.png"></a>
+                  <a href="#" id="instagram"><img class="img-fluid" height="30px" width="30px" src="img/igIcon.png"></a>
+                </div>
+              </div> 
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
   </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
-<script src="scripts/firebasedatastore.js" charset="utf-8"></script>
-<!-- <script src="scripts/index.js" charset="utf-8"></script> -->
-<script src="scripts/firebaseconfig.js" charset="utf-8"></script>
-<script src="scripts/allCards.js" charset="utf-8"></script>
-<script src="scripts/signout.js" charset="utf-8"></script>
-<script src="scripts/signinform.js" charset="utf-8"></script>
-<script src="scripts/signupform.js" charset="utf-8"></script>
-<script src="scripts/createform.js" charset="uft-8"></script>
-<script src="scripts/session.js" charset="utf-8"></script>
-<script src="scripts/main.js" charset="utf-8"></script>
-<script src="scripts/print.js" charset="utf-8"></script>
-<script>getAll()</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+  <script src="scripts/firebasedatastore.js" charset="utf-8"></script>
+  <!-- <script src="scripts/index.js" charset="utf-8"></script> -->
+  <script src="scripts/firebaseconfig.js" charset="utf-8"></script>
+  <script src="scripts/allCards.js" charset="utf-8"></script>
+  <script src="scripts/signout.js" charset="utf-8"></script>
+  <script src="scripts/signinform.js" charset="utf-8"></script>
+  <script src="scripts/signupform.js" charset="utf-8"></script>
+  <script src="scripts/createform.js" charset="uft-8"></script>
+  <script src="scripts/session.js" charset="utf-8"></script>
+  <script src="scripts/main.js" charset="utf-8"></script>
+  <script src="scripts/print.js" charset="utf-8"></script>
+  <script>getAll()</script>
 </body>
 </html>

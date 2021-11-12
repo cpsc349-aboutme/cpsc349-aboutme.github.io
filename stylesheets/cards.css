@@ -1,33 +1,33 @@
 body {
-  color: #fff;
-  background: #454550;
-  font-family: 'Roboto', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.navbar {
-  overflow: hidden;
-  position: fixed; 
-  top: 0;
-  width: 100%; 
-}
-
-#card {
-  border-radius: 25px;
-  padding: 20px;
-  background-image: url("../img/card-background.jpeg");
-}
-
-h2 {
-  text-shadow: 2px 2px 8px black;
-}
-
-p {
-  text-shadow: 2px 2px 8px black;
-}
-
-span {
-  text-shadow: 2px 2px 8px black;
-}
+    color: #fff;
+    background: #454550;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navbar {
+    overflow: hidden;
+    position: fixed; 
+    top: 0;
+    width: 100%; 
+  }
+  
+  #card {
+    border-radius: 25px;
+    padding: 20px;
+    background-image: url("../img/card-background.jpeg");
+  }
+  
+  h2 {
+    text-shadow: 2px 2px 8px black;
+  }
+  
+  p {
+    text-shadow: 2px 2px 8px black;
+  }
+  
+  span {
+    text-shadow: 2px 2px 8px black;
+  }

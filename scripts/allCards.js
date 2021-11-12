@@ -4,40 +4,67 @@ function getAll(){
             this.db.collection("cards").get().then((querySnapshot) =>{
                 querySnapshot.forEach((doc)=>{
                     const snapshot = doc.data();
-                    userName = snapshot["name"]
-                    job = snapshot["job"]
-                    location = snapshot["location"]
-                    contact = snapshot["contact"]
-                    about = snapshot["about"]
-                    education = snapshot["education"]
-                    twitter = snapshot["twitter"]
-                    instagram = snapshot["instagram"]
                     uid = snapshot["uid"]
-                    var $clone = $('.cardGroup:last').clone()
-                    $clone.data('name',"Name: " +userName);
-                    $clone.find('h2').text($clone.data('name'))
-                    $clone.data('job', "Job: " + job);
-                    $clone.find("#job").text($clone.data('job'))
-                    $clone.data('education',"Education: " + education)
-                    $clone.find("#education").text($clone.data('education'))
-                    $clone.data('about', "About: " +about);
-                    $clone.find("#about").text($clone.data('about'))
-                    $clone.data('contact', "Contact: " + contact)
-                    $clone.find("#contact").text($clone.data('contact'))
-                    $clone.data('location', "Location: " + location)
-                    $clone.find("#location").text($clone.data('location'))
-                    $clone.data('twitter', "Twitter: " + twitter)
-                    $clone.find("#twitter").text($clone.data('twitter'))
-                    $clone.data('instagram', "Instagram: " + instagram)
-                    $clone.find("#instagram").text($clone.data('instagram'))
-                    firebase.storage().ref('users/' + uid + '/profile.jpg').getDownloadURL().then(imgUrl => {
-                        $clone.find('#image').attr('src',imgUrl)
+                    firebase.storage().ref('users/' + uid + '/profile.jpg').getDownloadURL().then(function(imgUrl) {
+                        userName = snapshot["name"]
+                        job = snapshot["job"]
+                        location = snapshot["location"]
+                        contact = snapshot["contact"]
+                        about = snapshot["about"]
+                        education = snapshot["education"]
+                        twitter = snapshot["twitter"]
+                        instagram = snapshot["instagram"]
+                        $("#primary-container").append(
+                            $('<div class="row mt-5">').append(
+                                $('<div class="col">').append(
+                                    $('<div class="cardGroup">').append(
+                                        $('<div class="card">').append(
+                                            $('<div class="card-body">').append(
+                                                $('<h5 class="card-title">').text(userName),
+                                                $('<h6 class="card-subtitle mb-2 text-muted">').text(job),
+                                                $('<div class="row">').append(
+                                                   $('<div class="col-md-4 col-12">').append(
+                                                       $('<img class="img-thumbnail"/>').attr("src", imgUrl)
+                                                   ),
+                                                   $('<div class="col-md-8 col-12">').append(
+                                                       $('<div class="row h-75">').append(
+                                                           $('<p class="lead">').text(about)
+                                                       ),
+                                                       $('<div class="row h-25">').append(
+                                                           $('<div class="col">').append(
+                                                               $('<span class="text-muted">Education</span>'),
+                                                               $('<p>').text(education)
+                                                           ),
+                                                           $('<div class="col">').append(
+                                                               $('<span class="text-muted">Contact</span>'),
+                                                               $('<p>').text(contact)
+                                                           ),
+                                                           $('<div class="col">').append(
+                                                              $('<span class="text-muted">Location</span>'),
+                                                              $('<p>').text(location)
+                                                           )
+    
+                                                       )
+                                                   )
+                                                )
+                                            ),
+                                            $('<div class="card-footer">').append(
+                                                $('<div class="row">').append(
+                                                    $('<div class="col" align="center">').append(
+                                                        $('<a class="m-1" href="#"><img class="img-fluid" height="30px" width="30px" src="img/twittericon.png">').attr("href",twitter),
+                                                        $('<a class="m-1" href="#"><img class="img-fluid" height="30px" width="30px" src="img/igIcon.png">').attr("href",instagram)
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        );
 
-                    })
-                    setTimeout(function(){
-                        $clone.appendTo(".cardGroup:last")
-                    },1000)
-                    
+                    });
+
+        
                 });               
             });
 }    

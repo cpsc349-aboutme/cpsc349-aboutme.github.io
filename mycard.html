@@ -17,8 +17,14 @@
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
 </head>
-<header>
-  
+<style>
+  body{
+background: #454550;
+font-family: 'Roboto', sans-serif;
+  }
+
+</style>
+<body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -39,32 +45,64 @@
     </div>
   </div>
 </nav>
-</header>
-<body>
-  
-    <div id="gradient"></div>
-    <div id="card" class="pt-2">
-      <img id="image" src=""/>
-      <h2  id="name">Name:</h2>
-      <p id="job">Job:</p>
-      <p id="education">education:</p>
-      <p id="about">about:</p>
-      <p></p>
-      <p id="contact">contact:</p>
-      <p id="location">location: </p>
-      <p class="bottom" id="twitter">Twitter:<p>
-      <p class="bottom" id="instagram">Instagram:</p>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <div class="cardGroup">
+        <div id="card" class="card">
+          <div class="card-body">
+            <h5 class="card-title" id="name"></h5>
+            <h6 class="card-subtitle mb-2 text-muted" id="job"></h6>  
+            <div class="row">
+              <div class="col-md-4 col-12">
+                <img id="image" class="img-thumbnail" src=""/>
+              </div>
+              <div class="col-md-8 col-12">
+                <div class="row h-75">
+                  <p id="about" class="lead"></p>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <span class="text-muted">Education</span>
+                    <p id="education"></p>
+                  </div>
+                  <div class="col">
+                    <span class="text-muted">Contact</span>
+                    <div id="contact"></div>
+                  </div>
+                  <div class="col">
+                    <span class="text-muted">Location</span>
+                    <div id="location"></div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col" align="center">
+                <a href="#" id="twitter"><img class="img-fluid" height="30px" width="30px" src="img/twittericon.png"></a>
+                <a href="#" id="instagram"><img class="img-fluid" height="30px" width="30px" src="img/igIcon.png"></a>
+              </div>
+            </div> 
+          </div>
+         </div>
+        </div>
+      </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
-    <script src="scripts/firebasedatastore.js" charset="utf-8"></script>
-    <!-- <script src="scripts/index.js" charset="utf-8"></script> -->
-    <script src="scripts/firebaseconfig.js" charset="utf-8"></script>
-    <script src="scripts/signinform.js" charset="utf-8"></script>
-    <script src="scripts/signupform.js" charset="utf-8"></script>
-    <script src="scripts/createform.js" charset="uft-8"></script>
-    <script src="scripts/session.js" charset="utf-8"></script>
-    <script src="scripts/main.js" charset="utf-8"></script>
-    <script src="scripts/print.js" charset="utf-8"></script>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+<script src="scripts/firebasedatastore.js" charset="utf-8"></script>
+<!-- <script src="scripts/index.js" charset="utf-8"></script> -->
+<script src="scripts/firebaseconfig.js" charset="utf-8"></script>
+<script src="scripts/signinform.js" charset="utf-8"></script>
+<script src="scripts/signupform.js" charset="utf-8"></script>
+<script src="scripts/createform.js" charset="uft-8"></script>
+<script src="scripts/session.js" charset="utf-8"></script>
+<script src="scripts/main.js" charset="utf-8"></script>
+<script src="scripts/print.js" charset="utf-8"></script>
 <script>printCard()</script>
 </body>
 </html>
