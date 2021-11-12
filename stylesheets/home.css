@@ -1,0 +1,103 @@
+*{
+    margin: 0px;
+    padding: 0;
+    
+}
+
+
+.container{
+    position:absolute;
+    height: 100%;
+    width:100%;
+    overflow-x: hidden;
+    background: #454550;
+    background-size:contain;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 500%;
+    color:rgb(28, 37, 61);
+    
+    border: 10px solid rgb(255, 255, 255);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    }
+
+.icon1{
+    position: absolute;
+ margin: auto;
+  top: 35%;
+    left: 10%;
+    padding: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    background-color: transparent;
+    color:rgb(121, 190, 247);
+    
+  }
+
+
+
+  
+
+  .icon1:hover{
+    color:rgb(96, 235, 103);
+    background-color:rgb(105, 125, 214);
+    border: 3px solid rgb(255, 255, 255);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+  
+
+
+  .icon2{
+    position:absolute;
+    top: 35%;
+    left: 40%;
+    padding: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    background-color: transparent;
+    color:rgb(121, 190, 247);
+    }
+  
+    
+  .icon2:hover{
+    color:rgb(96, 235, 103);
+    background-color:rgb(105, 125, 214);
+    border: 3px solid rgb(255, 255, 255);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+    
+  .icon3{
+    position:absolute;
+    top: 35%;
+    right: 10%;
+    padding: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    background-color: transparent;
+    color:rgb(121, 190, 247);
+    }
+  
+    
+  .icon3:hover{
+    color:rgb(96, 235, 103);
+    background-color:rgb(105, 125, 214);
+    border: 3px solid rgb(255, 255, 255);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
+  .logout{
+    display: flex;
+    justify-content: end;
+    font-size: x-large;
+  }

@@ -18,15 +18,15 @@ async function printCard(){
                 about = snapshot["about"]
                 education = snapshot["education"]
                 twitter = snapshot["twitter"]
-                instagram = snapshot["instagram"]
-               
+                instagram = snapshot["instagram"]   
                 $("#name").text("name: "+userName)
                 $("#job").text("job: "+job)
                 $("#education").text("education: "+education)
                 $("#about").text("about: "+about)
                 $("#contact").text("contact: "+contact)
                 $("#location").text("location: " +location)
-                $("#social").text("social: " + twitter)
+                $("#twitter").text("twitter: " + twitter)
+                $("#instagram").text("instagram: " + instagram)
             })
         }
     })

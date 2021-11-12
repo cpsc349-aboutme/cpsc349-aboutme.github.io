@@ -15,6 +15,9 @@
     Session.prototype.create = function(data){
         return this.db.createCard(data);
     }
+    Session.prototype.signOut = function(data){
+        return this.db.signOut(data);
+    }
 
     App.Session = Session;
     window.App = App;

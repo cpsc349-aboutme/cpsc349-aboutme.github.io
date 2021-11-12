@@ -1,18 +1,9 @@
-
-
-async function getAll(){
+function getAll(){
     this.db = firebase.firestore();
     var userName, job, location, contact, about, education, twitter, instagram, uid
-    var storageRef = firebase.storage().ref();
-    var listRef = storageRef.child('users');
-    await firebase.auth().onAuthStateChanged(user => {
-        if(user){
             this.db.collection("cards").get().then((querySnapshot) =>{
                 querySnapshot.forEach((doc)=>{
-
-
                     const snapshot = doc.data();
-                    console.log(snapshot)
                     userName = snapshot["name"]
                     job = snapshot["job"]
                     location = snapshot["location"]
@@ -22,17 +13,6 @@ async function getAll(){
                     twitter = snapshot["twitter"]
                     instagram = snapshot["instagram"]
                     uid = snapshot["uid"]
-                    console.log(uid)
-                    listRef.listAll().then(function(res){
-                        res.prefixes.forEach((folderRef)=>{
-                            var str = folderRef.fullPath.substr(6);
-                            //console.log(str)
-                            firebase.storage().ref(folderRef.fullPath + '/profile.jpg').getDownloadURL().then(imgUrl =>{
-                                console.log(imgUrl)
-                               // $('#image').attr("src",imgUrl)
-                            })
-                        })
-                    })
                     var $clone = $('.cardGroup:last').clone()
                     $clone.data('name',"Name: " +userName);
                     $clone.find('h2').text($clone.data('name'))
@@ -50,9 +30,14 @@ async function getAll(){
                     $clone.find("#twitter").text($clone.data('twitter'))
                     $clone.data('instagram', "Instagram: " + instagram)
                     $clone.find("#instagram").text($clone.data('instagram'))
-                    $clone.insertAfter(".cardGroup:last")
+                    firebase.storage().ref('users/' + uid + '/profile.jpg').getDownloadURL().then(imgUrl => {
+                        $clone.find('#image').attr('src',imgUrl)
+
+                    })
+                    setTimeout(function(){
+                        $clone.appendTo(".cardGroup:last")
+                    },1000)
+                    
                 });               
             });
-        }
-    })
 }    

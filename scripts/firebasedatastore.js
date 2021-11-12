@@ -50,6 +50,16 @@ function chooseFile(e) {
             })
         
         }
+
+        async signOut(){
+            console.log("here");
+            firebase.auth().signOut().then(()=>{
+                console.log("signout sucessful")
+                window.location.replace("../index.html");
+            }).catch((error) => {
+
+            });
+        }
         
         async createCard(){
             var userName = document.getElementById("userCName").value;
@@ -75,7 +85,8 @@ function chooseFile(e) {
                         about: about,
                         education: education,
                         twitter: "https://twitter.com/"+ twitter,
-                        instgram: "https://instagram.com/"+ instagram
+                        instagram: "https://instagram.com/"+ instagram,
+                        uid: user.uid
                     })
                     setTimeout(function(){
                         window.location.replace("../mycard.html");
@@ -131,7 +142,8 @@ function chooseFile(e) {
                         $("#about").text("about: "+about)
                         $("#contact").text("contact: "+contact)
                         $("#location").text("location: " +location)
-                        $("#social").text("social: " + twitter)
+                        $("#twitter").text("twitter: " + twitter)
+                        $("#instagram").text("instagram: " + instagram)
                     })
                 }
             })
