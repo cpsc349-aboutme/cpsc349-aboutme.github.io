@@ -3,7 +3,7 @@
 
 > CPSC349-02 Project 1
 >
-> Group Name: Business Cards
+> Group Name: AboutMe
 > 
 > Group Members:
 > 
